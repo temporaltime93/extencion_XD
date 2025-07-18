@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "M3U8 Finder",
+  "description": "Detecta y redirige enlaces m3u8 en la página actual",
+  "version": "1.0",
+  "permissions": ["scripting", "tabs", "webRequest", "activeTab", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
